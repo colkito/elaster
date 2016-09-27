@@ -37,7 +37,8 @@ function exportCollection(desc, callback) {
 		function (next) {
 			console.log('----> dropping existing index [' + desc.index + ']');
 			elastic.indices.delete({index: desc.index}, function (err) {
-				var indexMissing = err && err.message.indexOf('IndexMissingException') === 0;
+				// var indexMissing = err && err.message.indexOf('IndexMissingException') === 0;
+				var indexMissing = err && err.message && err.message.type && err.message.type === 'index_not_found_exception';
 				next(indexMissing ? null : err);
 			});
 		},
