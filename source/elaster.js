@@ -89,7 +89,7 @@ function exportCollection(desc, callback) {
 				elastic.create({
 					index: desc.index,
 					type: desc.type,
-					id: item._id.toString(),
+					id: item.id.toString(),
 					body: item
 				}, function (err) {
 					if (err) {
