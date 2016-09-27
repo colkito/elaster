@@ -14,6 +14,6 @@ module.exports = {
 		name: 'orders',
 		index: 'orders',
 		type: 'order',
-		fields: ['id', 'subject', 'html', 'text', 'to_address']
+		fields: ['subject', 'html', 'text', 'to_address']
 	}]
 };

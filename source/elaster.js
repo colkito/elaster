@@ -89,7 +89,7 @@ function exportCollection(desc, callback) {
 				elastic.create({
 					index: desc.index,
 					type: desc.type,
-					id: item.id.toString(),
+					// id: item._id.toString(),
 					body: item
 				}, function (err) {
 					if (err) {
@@ -112,7 +112,7 @@ function exportCollection(desc, callback) {
 
 			var stream = collection
 				.find(query)
-				.sort({_id: 1})
+				.sort({ _id: 1 })
 				.pipe(takeFields)
 				.pipe(postToElastic)
 				.pipe(progress());
